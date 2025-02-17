@@ -82,5 +82,8 @@ main aside ul li{
 footer{
     text-align: center;
     font-size: 36px;
-    
+    color: white;
+    background-color: blueviolet;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }

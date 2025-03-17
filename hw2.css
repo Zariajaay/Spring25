@@ -1,0 +1,86 @@
+/* General styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Header Styles */
+header {
+    width: 100vw;
+    height: 10vh;
+    background-color: navy;
+    color: white;
+    font-size: 2vw;
+    display: flex;
+    align-items: center;
+    padding-left: 2vw;
+    position: relative;
+}
+
+/* ASU Logo Styling */
+.logo {
+    position: fixed;
+    top: 1vw;
+    left: 1vw;
+    width: 8vw; /* Adjusted size for ASU logo */
+    height: auto;
+}
+
+/* Navigation Bar */
+nav {
+    width: 100vw;
+    background-color: darkgray;
+    font-size: 2vw;
+    padding: 1vw;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+/* Main Content */
+main {
+    width: 80vw;
+    font-size: 1.5vw;
+    margin: auto;
+    padding: 2vw;
+}
+
+/* Flexbox Container */
+.flex-container {
+    display: flex;
+    justify-content: space-around; /* Adjusts spacing */
+    align-items: center; /* Aligns items vertically */
+    width: 80vw;
+    height: 50vh;
+    background-color: lightgray;
+    border: 2px solid black;
+    margin: 5vw auto;
+}
+
+/* Flex Items */
+.item {
+    width: 20vw;
+    height: 20vh;
+    background-color: gold;
+    text-align: center;
+    line-height: 20vh;
+    font-size: 2vw;
+    font-weight: bold;
+    color: navy;
+    border-radius: 10px;
+}

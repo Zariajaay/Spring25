@@ -48,7 +48,24 @@ nav ul li{
 .dropdown:hover .dropdown-content{
     display: block;
 }
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 8px 8px 16px 0px rgba(216, 230, 31, 0.836), 8px 8px 16px 0px rgba(187, 116, 116, 0.2);
+    padding: 12px 16px;
+    z-index: 1;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
 
+    color: black;
+}
 main{
     width: 100%;
     border: 1px solid green;
@@ -227,4 +244,17 @@ div.gallery h3::before{
 
 .grid_item{
     grid-area: grid_item_a grid_item_b grid_item_c;
+}
+body{
+
+    counter-reset: x;   /*declare a counter */
+
+} 
+
+h2::after{                   /* use it after each H2 element */
+
+     counter-increment: x  1;
+
+     content:   counter(x) ": ";
+
 }

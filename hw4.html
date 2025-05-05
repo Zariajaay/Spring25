@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Zaria Scott's Bootstrap Demo</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zaria Scott's Bootstrap Website</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="script.js" defer></script> 
   <style>
     body {
       background-color: #f4f4f4;
@@ -33,13 +34,9 @@
       max-width: 300px;
       border-radius: 20px;
     }
-    .button-section {
-      margin-top: 40px;
-      text-align: center;
-    }
   </style>
 </head>
-<body>
+<body onload="init()">
 
 <div class="custom-header">
   <h1>Zaria Scott</h1>
@@ -47,14 +44,12 @@
 </div>
 
 <div class="container mt-4">
-  <!-- Demo 1 -->
   <div class="text-center">
-    <h2>Demo 1 - My First Bootstrap Page</h2>
+    <h2>My First Bootstrap Page</h2>
     <p>Resize this responsive page to see the effect!</p>
   </div>
 
-  <!-- Demo 2 - About Me Columns -->
-  <h2 class="mt-4">Demo 2 - About Me</h2>
+  <h2 class="mt-4">About Me</h2>
   <div class="row bio-section">
     <div class="col-md-4">
       <h4>About Zaria</h4>
@@ -74,33 +69,87 @@
     </div>
   </div>
 
-  <!-- Demo 8 - Centered Image -->
-  <h2 class="mt-4">Demo 8 - Centered Image</h2>
+  <h2 class="mt-4">Centered Image</h2>
   <div class="text-center">
     <img src="grad.jpg.jpeg" class="img-fluid mx-auto d-block profile-img" alt="Graduation Image">
   </div>
 
-  <!-- Demo 11 - Buttons -->
-  <div class="button-section">
-    <h2 class="mt-5">Demo 11 - Button Outline</h2>
-    <button type="button" class="btn btn-outline-primary m-2">Primary</button>
-    <button type="button" class="btn btn-outline-secondary m-2">Secondary</button>
-    <button type="button" class="btn btn-outline-success m-2">Success</button>
-    <button type="button" class="btn btn-outline-danger m-2">Danger</button>
-    <button type="button" class="btn btn-outline-warning m-2">Warning</button>
-    <button type="button" class="btn btn-outline-info m-2">Info</button>
-    <button type="button" class="btn btn-outline-dark m-2">Dark</button>
-  </div>
+  <h2>Form with Dynamic Interaction</h2>
+  <form id="myForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" class="form-control"><br><br>
+    
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" class="form-control"><br><br>
+    
+    <label>Select Your Favorite Animals:</label><br>
+    <input type="checkbox" id="dog" name="animal" value="Dog">
+    <label for="dog">Dog</label><br>
+    <input type="checkbox" id="cat" name="animal" value="Cat">
+    <label for="cat">Cat</label><br>
+    <input type="checkbox" id="elephant" name="animal" value="Elephant">
+    <label for="elephant">Elephant</label><br>
+    <input type="checkbox" id="lion" name="animal" value="Lion">
+    <label for="lion">Lion</label><br><br>
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+  <button id="btn1" class="btn btn-secondary mt-3">Button 1</button>
+  <button id="btn2" class="btn btn-secondary mt-3">Button 2</button>
+  <button id="btn3" class="btn btn-secondary mt-3">Button 3</button>
+
+  <div id="output" class="mt-4"></div>
 
 </div>
 
-<!-- Footer -->
 <div class="custom-footer">
   <p>&copy; 2025 Zaria Scott. All rights reserved.</p>
 </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+function init() {
+  document.getElementById('btn1').addEventListener('click', handleButton1);
+  document.getElementById('btn2').addEventListener('click', handleButton2);
+  document.getElementById('btn3').addEventListener('click', handleButton3);
+  
+  document.getElementById('myForm').addEventListener('submit', handleFormSubmit);
+}
+
+function handleButton1() {
+  alert("Button 1 clicked!");
+}
+
+function handleButton2() {
+  alert("Button 2 clicked!");
+}
+
+function handleButton3() {
+  alert("Button 3 clicked!");
+}
+
+function handleFormSubmit(event) {
+  event.preventDefault(); 
+  
+  const name = document.getElementById('name').value;
+  const password = document.getElementById('password').value;
+  
+  const selectedAnimals = [];
+  const checkboxes = document.getElementsByName('animal');
+  for (let checkbox of checkboxes) {
+    if (checkbox.checked) {
+      selectedAnimals.push(checkbox.value);
+    }
+  }
+
+  let output = `<h3>Form Data Submitted:</h3>`;
+  output += `<p>Name: ${name}</p>`;
+  output += `<p>Password: ${password}</p>`;
+  output += `<p>Selected Animals: ${selectedAnimals.join(', ')}</p>`;
+  
+  document.getElementById('output').innerHTML = output;
+}
+</script>
+
 </body>
 </html>
